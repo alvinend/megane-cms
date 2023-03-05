@@ -3,8 +3,10 @@ import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import "./all.sass";
+import "./global.css";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
+
 
 const TemplateWrapper = ({ children }) => {
   const { title, description } = useSiteMetadata();
@@ -14,6 +16,14 @@ const TemplateWrapper = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+
+        <link
+          rel="preload"
+          href={`/fonts/Hubot-Sans.woff2`}
+          as="font"
+          type="font/woff2"
+          crossorigin
+        />
 
         <link
           rel="apple-touch-icon"
@@ -48,9 +58,15 @@ const TemplateWrapper = ({ children }) => {
           content={`${withPrefix("/")}img/og-image.jpg`}
         />
       </Helmet>
-      <Navbar />
-      <div>{children}</div>
-      <Footer />
+      {/* <Navbar /> */}
+      <div
+        style={{
+          fontFamily: "Hubot Sans",
+        }}
+      >
+        {children}
+      </div>
+      {/* <Footer /> */}
     </div>
   );
 };
