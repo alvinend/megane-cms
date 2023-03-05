@@ -21,7 +21,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           email={data.email}
           jumbotronMetadata={{
             ...data.jumbotron,
-            image: getAsset(data.jumbotron.image)
+            image: getAsset(entry.getIn(['data', 'jumbotron', 'image']))
           }}
           featuresMetadata={data.features}
           strongPointsMetadata={data.strongPoints}
