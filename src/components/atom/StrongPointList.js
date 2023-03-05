@@ -1,3 +1,4 @@
+import { getImage } from 'gatsby-plugin-image'
 import React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
@@ -101,6 +102,8 @@ export const StrongPointList = ({
   desc,
   number="01"
 }) => {
+  console.log(getImage(imgLink))
+
   return (
     <StrongPointListContainer>
       <Number>{number}</Number>
@@ -110,7 +113,7 @@ export const StrongPointList = ({
           {desc}
         </div>
       </PointDescContainer>
-      <PointVisualContainer src={imgLink} />
+      <PointVisualContainer src={getImage(imgLink)?.images?.fallback?.src} />
     </StrongPointListContainer>
   )
 }

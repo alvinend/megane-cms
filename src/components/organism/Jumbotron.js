@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
@@ -6,7 +7,9 @@ import { screen } from '../../utils/screen'
 
 const JumbotronContainer = styled.div`
   display: flex;
+  justify-content: space-between;
   width: 100vw;
+  margin: 0 auto;
   background: ${color.lightGray};
   overflow-x: hidden;
   padding-top: 100px;
@@ -23,6 +26,7 @@ const RightContainer = styled.div`
   flex-direction: column;
   height: 100%;
   width: 50%;
+  max-width: 900px;
   color: ${color.white};
   padding: 0 100px;
   color: ${color.black};
@@ -50,16 +54,14 @@ const RightContainer = styled.div`
     border-radius: 20px;
 
     @media screen and (max-width: ${screen.tablet}) {
-      display: inline;
-      margin: 30px auto;
-      height: 500px;
-      width: auto;
-      object-fit: contain;
+      display: block;
+      height: auto;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+      margin: 30px 0;
     }
 
-    @media screen and (max-width: ${screen.mobile}) {
-      height: 300px;
-    }
   }
 
   & > p {
@@ -99,8 +101,9 @@ const LeftContainer = styled.div`
     display: none;
   }
 
-  & > img {
+  & > .main-img {
     width: 70%;
+    max-width: 600px;
     border-radius: 10%;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
 
@@ -133,30 +136,55 @@ export const Jumbotron = React.forwardRef((
   props,
   ref
 ) => {
+  const {
+    title,
+    image,
+    description,
+    shopNowLabel,
+    linkShopee,
+    linkTokopedia
+  } = props
+
+  console.log(image)
+
   return (
     <JumbotronContainer ref={ref}>
       <RightContainer>
         <h1>
-          Kacamata & Lensa
+          {title}
         </h1>
 
-        <img src="/img/kacamata1.jpg" alt="Gold Glasses" className='main-img-mobile' />
+        <GatsbyImage
+          image={image}
+          alt="Gold Glasses"
+          className='main-img-mobile'
+        />
 
-        <p>
-        Optik kami menawarkan kombinasi yang sempurna antara harga terjangkau dan kualitas tinggi, sehingga pelanggan dapat menikmati pakaian mata yang luar biasa tanpa harus memakai banyak uang.
-        </p>
+        <p>{description}</p>
 
         <div className='shop-icons'>
-          <b>Belanja Sekarang </b>
+          <b>{shopNowLabel}</b>
           <div>
-            <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href="https://shopee.co.id/shop/487039321/" target="_blank" />
-            <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href="https://www.tokopedia.com/meganeofficial" target="_blank" />
+            <ShopIcon
+              src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg"
+              href={linkShopee}
+              target="_blank"
+            />
+            <ShopIcon
+              src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png"
+              href={linkTokopedia}
+              target="_blank"
+            />
           </div>
         </div>
       </RightContainer>
 
       <LeftContainer>
-        <img src="/img/kacamata1.jpg" alt="Gold Glasses" />
+        <GatsbyImage
+          image={image}
+          alt="Gold Glasses"
+          className='main-img'
+        />
       </LeftContainer>
     </JumbotronContainer>
   )

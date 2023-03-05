@@ -11,57 +11,60 @@ import { HomePage } from "../components/page/HomePage";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
-  image,
-  title,
-  heading,
-  subheading,
-  mainpitch,
-  description,
-  intro,
+  linkShopee,
+  linkTokopedia,
+  linkInstagram,
+  linkFacebook,
+  linkWhatsapp,
+  whatsAppNumber,
+  email,
+  jumbotronMetadata,
+  featuresMetadata,
+  strongPointsMetadata,
+  testimoniesMetadata,
+  supportMetadata,
 }) => {
-  const heroImage = getImage(image) || image;
-
   return (
-    <HomePage />
+    <HomePage
+      linkShopee={linkShopee}
+      linkTokopedia={linkTokopedia}
+      linkInstagram={linkInstagram}
+      linkFacebook={linkFacebook}
+      linkWhatsapp={linkWhatsapp}
+      whatsAppNumber={whatsAppNumber}
+      email={email}
+      jumbotronMetadata={jumbotronMetadata}
+      featuresMetadata={featuresMetadata}
+      strongPointsMetadata={strongPointsMetadata}
+      testimoniesMetadata={testimoniesMetadata}
+      supportMetadata={supportMetadata}
+    />
   );
-};
-
-IndexPageTemplate.propTypes = {
-  image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-  title: PropTypes.string,
-  heading: PropTypes.string,
-  subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
-  description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 };
 
 const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
+  console.log(frontmatter.jumbotron)
+  
   return (
     <Layout>
       <IndexPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        heading={frontmatter.heading}
-        subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
-        description={frontmatter.description}
-        intro={frontmatter.intro}
+        linkShopee={frontmatter.linkShopee}
+        linkTokopedia={frontmatter.linkTokopedia}
+        linkInstagram={frontmatter.linkInstagram}
+        linkFacebook={frontmatter.linkFacebook}
+        linkWhatsapp={frontmatter.linkWhatsapp}
+        whatsAppNumber={frontmatter.whatsAppNumber}
+        email={frontmatter.email}
+        jumbotronMetadata={frontmatter.jumbotron}
+        featuresMetadata={frontmatter.features}
+        strongPointsMetadata={frontmatter.strongPoints}
+        testimoniesMetadata={frontmatter.testimonies}
+        supportMetadata={frontmatter.support}
       />
     </Layout>
   );
-};
-
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    markdownRemark: PropTypes.shape({
-      frontmatter: PropTypes.object,
-    }),
-  }),
 };
 
 export default IndexPage;
@@ -70,30 +73,73 @@ export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
-        title
-        image {
-          childImageSharp {
-            gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-          }
-        }
-        heading
-        subheading
-        mainpitch {
+        linkShopee
+        linkTokopedia
+        linkInstagram
+        linkFacebook
+        linkWhatsapp
+        whatsAppNumber
+        email
+
+        jumbotron {
           title
           description
+          image {
+            childImageSharp {
+              gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            }
+          }
+          shopNowLabel
         }
-        description
-        intro {
-          blurbs {
+
+        features {
+          heading
+          items {
             image {
               childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
               }
             }
-            text
+            productName
+            price
+            linkShopee
+            linkTokopedia
           }
+        }
+
+        strongPoints {
           heading
-          description
+          subheading
+          items {
+            image {
+              childImageSharp {
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+              }
+            }
+            title
+            description
+          }
+        }
+
+        testimonies {
+          heading
+          subheading
+          items {
+            authorImage {
+              childImageSharp {
+                gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+              }
+            }
+            authorName
+            description
+          }
+        }
+
+        support {
+          heading
+          subheading
+          goToStoreLabel
+          contactUsLabel
         }
       }
     }

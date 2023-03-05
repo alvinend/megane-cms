@@ -7,6 +7,7 @@ import { TestimonyList } from '../organism/TestimonyList'
 import { StrongPoint } from '../organism/StrongPoint'
 import { Support } from '../organism/Support'
 import { Topbar } from '../organism/Topbar'
+import { getImage } from 'gatsby-plugin-image'
 
 const HomePageContainer = styled.div`
   overflow-x: hidden;
@@ -36,20 +37,75 @@ const ShopIcon = styled.a`
   box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.3);
 `
 
-export const HomePage = () => {
+export const HomePage = ({
+  linkShopee,
+  linkTokopedia,
+  linkFacebook,
+  linkWhatsapp,
+  whatsAppNumber,
+  email,
+  jumbotronMetadata,
+  featuresMetadata,
+  strongPointsMetadata,
+  testimoniesMetadata,
+  supportMetadata,
+}) => {
   const jumbotronRef = React.useRef(null)
   const featureRef = React.useRef(null)
   const strongPointRef = React.useRef(null)
   const productRef = React.useRef(null)
   const supportRef = React.useRef(null)
+
   return (
     <HomePageContainer>
-      <Jumbotron ref={jumbotronRef}/>
-      <FeatureHighlight ref={featureRef}/>
-      <StrongPoint ref={strongPointRef}/>
-      <TestimonyList ref={productRef}/>
-      <Support ref={supportRef}/>
-      <Footer />
+      <Jumbotron
+        ref={jumbotronRef}
+        title={jumbotronMetadata.title}
+        image={getImage(jumbotronMetadata.image) || jumbotronMetadata.image}
+        description={jumbotronMetadata.description}
+        shopNowLabel={jumbotronMetadata.shopNowLabel}
+        linkShopee={linkShopee}
+        linkTokopedia={linkTokopedia}
+      />
+      
+      <FeatureHighlight
+        ref={featureRef}
+        heading={featuresMetadata.heading}
+        items={featuresMetadata.items}
+      />
+      
+      <StrongPoint
+        ref={strongPointRef}
+        heading={strongPointsMetadata.heading}
+        subheading={strongPointsMetadata.heading}
+        items={strongPointsMetadata.items}
+      />
+
+      <TestimonyList
+        ref={productRef}
+        heading={testimoniesMetadata.heading}
+        subheading={testimoniesMetadata.subheading}
+        items={testimoniesMetadata.items}
+      />
+      
+      <Support
+        ref={supportRef}
+        heading={supportMetadata.heading}
+        subheading={supportMetadata.subheading}
+        goToStoreLabel={supportMetadata.goToStoreLabel}
+        contactUsLabel={supportMetadata.contactUsLabel}
+        linkFacebook={linkFacebook}
+        linkWhatsapp={linkWhatsapp}
+        whatsAppNumber={whatsAppNumber}
+        email={email}
+      />
+      
+      <Footer
+        linkFacebook={linkFacebook}
+        linkWhatsapp={linkWhatsapp}
+        whatsAppNumber={whatsAppNumber}
+        email={email}
+      />
       {/* <Topbar
         jumbotronRef={jumbotronRef}
         featureRef={featureRef}

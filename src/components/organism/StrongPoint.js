@@ -47,42 +47,32 @@ export const StrongPoint = React.forwardRef((
   props,
   ref
 ) => {
+  const {
+    heading,
+    subheading,
+    items
+  } = props
+
   return (
-    <StrongPointContainer ref={ref}>\
+    <StrongPointContainer ref={ref}>
       <StrongPointInnerContainer>
         <OverviewContainer>
           <OverviewDescContainer>
-            <h3 className="section-title">Alasan untuk Memilih Kami</h3>
+            <h3 className="section-title">{heading}</h3>
             <div>
-            Kami berikan Garansi Purna Jual terbaik, termasuk Frame dan lensa, serta kenyamanan saat dipakai.
+              {subheading}
             </div>
           </OverviewDescContainer>
         </OverviewContainer>
-        <StrongPointList
-          title="Garansi untuk Frame, Lensa, dan Kenyamanan"
-          desc={<div>
-            Kami memberikan garansi untuk Frame, Lensa, dan Kenyamanan saat dipakai. Kerusakan apapun akan kami ganti dengan produk baru. Bahkan jika pelanggan hanya merasa tidak nyaman saat menggunakan produk kami, kami akan melayani dan memastikan kenyamanan mereka.
-          </div>}
-          imgLink="/img/garansi.avif"
-          number='01'
-        />
-        <StrongPointList
-          title="Gratis pengiriman seluruh Indonesia"
-          desc={<div>
-            Setiap pembelian kacamata Megane akan dikirimkan secara gratis ke seluruh wilayah Indonesia. Pembelian dapat dilakukan melalui beberapa marketplace terkemuka seperti Tokopedia, Shopee, Bukalapak, Lazada, dan Blibli. Gratis ongkir hanya berlaku untuk pembelian frame dan lensa.
-          </div>}
-          imgLink="/img/kirim.avif"
-          number='02'
-        />
-
-        <StrongPointList
-          title="Discount untuk Peserta BPJS dan Asuransi Lainnya"
-          desc={<div>
-            Untuk para pemegang kartu asuransi seperti BPJS, Prudential, AXA, Manulife, Panin, AIA, Sequis, Allianz, BCA, Astra, Zurich, Mega, Marine, BNI, Lippo, dll, kami memiliki kabar gembira untuk Anda! Anda dapat menikmati potongan harga hingga Rp 300.000 untuk setiap pembelian kacamata Megane, termasuk frame dan lensa.
-          </div>}
-          imgLink="/img/asuransi.jpg"
-          number='03'
-        />
+        {items.map((item, i) => (
+          <StrongPointList
+            key={i}
+            title={item.title}
+            desc={<div>{item.description}</div>}
+            imgLink={item.image}
+            number={`0${i + 1}`}
+          />
+        ))}
       </StrongPointInnerContainer>
     </StrongPointContainer>
   )

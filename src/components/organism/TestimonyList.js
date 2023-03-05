@@ -1,3 +1,4 @@
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
@@ -97,7 +98,7 @@ const GlassBox = styled.div`
   }
 `
 
-const GlassBoxImg = styled.img`
+const GlassBoxImg = styled(GatsbyImage)`
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -109,7 +110,7 @@ const GlassBoxImg = styled.img`
   }
 `
 
-const GlassBoxImgMobile = styled.img`
+const GlassBoxImgMobile = styled(GatsbyImage)`
   display: none;
   width: 50px;
   height: 50px;
@@ -149,55 +150,34 @@ export const TestimonyList = React.forwardRef((
   props,
   ref
 ) => {
+  const {
+    heading,
+    subheading,
+    items
+  } = props
+
   return (
     <TestimonyListContainer ref={ref}>
       <TestimonyListInnerContainer>
         <OverviewContainer>
           <OverviewDescContainer>
-            <h3 className="section-title">Apa yang Pelanggan Katakan Tentang Kita</h3>
-            <div>
-            Tinggalkan kekhawatiranmu tentang kacamata, kami akan membantu menemukan model yang sesuai dengan gaya dan kebutuhanmu..
-            </div>
+            <h3 className="section-title">{heading}</h3>
+            <div>{subheading}</div>
           </OverviewDescContainer>
         </OverviewContainer>
         <TestimonyContainer>
-          <GlassBox>
-            <GlassBoxImg src="/img/testimony1.jpg" />
-            <GlassBoxContent>
-              <GlassBoxDesc>Stafnya sangat ramah dan membantu saya dalam memilih kacamata yang tepat.</GlassBoxDesc>
-              <GlassBoxAuthor>
-                <GlassBoxImgMobile src="/img/testimony1.jpg" />
-                Putri
-              </GlassBoxAuthor>
-            </GlassBoxContent>
-          </GlassBox>
-
-          <GlassBox>
-            <GlassBoxImg src="/img/testimony2.jpg" />
-            <GlassBoxContent>
-              <GlassBoxDesc>
-                Saya langsung menemukan kacamata yang saya inginkan dan stafnya juga sangat
-                membantu dalam memilih lensa yang cocok dengan kebutuhan saya.
-              </GlassBoxDesc>
-              <GlassBoxAuthor>
-                <GlassBoxImgMobile src="/img/testimony2.jpg" />
-                Andi
-              </GlassBoxAuthor>
-            </GlassBoxContent>
-          </GlassBox>
-          <GlassBox>
-            <GlassBoxImg src="/img/testimony1.jpg" />
-            <GlassBoxContent>
-              <GlassBoxDesc>
-                Kacamata yang saya beli di toko ini terjangkau dan kualitasnya sangat baik.
-                Saya juga mendapatkan garansi untuk frame dan lensa.
-              </GlassBoxDesc>
-              <GlassBoxAuthor>
-                <GlassBoxImgMobile src="/img/testimony1.jpg" />
-                Putri
-              </GlassBoxAuthor>
-            </GlassBoxContent>
-          </GlassBox>
+          {items.map((item, i) => (
+            <GlassBox key={i}>
+              <GlassBoxImg image={getImage(item.authorImage) || item.authorImage} />
+              <GlassBoxContent>
+                <GlassBoxDesc>{item.description}</GlassBoxDesc>
+                <GlassBoxAuthor>
+                  <GlassBoxImgMobile image={getImage(item.authorImage) || item.authorImage} />
+                  {item.authorName}
+                </GlassBoxAuthor>
+              </GlassBoxContent>
+            </GlassBox>
+          ))}
         </TestimonyContainer>
       </TestimonyListInnerContainer>
     </TestimonyListContainer>

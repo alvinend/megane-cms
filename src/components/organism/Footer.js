@@ -95,7 +95,13 @@ const LogoContainer = styled.div`
 `
 
 
-export const Footer = () => {
+export const Footer = ({
+  linkInstagram,
+  linkFacebook,
+  linkWhatsapp,
+  whatsAppNumber,
+  email
+}) => {
   return (
     <FooterContainer>
       <LogoContainer>
@@ -108,27 +114,27 @@ export const Footer = () => {
         <InfoInnerContainer>
           <InfoList>
             <h4>Social Media</h4>
-            <a href="https://instagram.com/meganeeyewearid">Instagram</a>
-            <a href="https://www.facebook.com/profile.php?id=100073341421197">Facebook</a>
+            <a href={linkInstagram}>Instagram</a>
+            <a href={linkFacebook}>Facebook</a>
           </InfoList>
 
           <InfoList>
             <h4>Contact Info</h4>
-            <a href="https://wa.me/628113509306" target="_blank">
+            <a href={linkWhatsapp} target="_blank">
               <span className="image-container">
                 <RiWhatsappFill />
               </span>
-              <span> 082-501-3465</span>
+              <span>{whatsAppNumber}</span>
             </a>
             <a>
               <span className="image-container">
                 <GrMail />
               </span>
-              <span> support@megane.co.id</span>
+              <span>{email}</span>
             </a>
           </InfoList>
         </InfoInnerContainer>
-        Copyright @2021 Megane All Right Reserved
+        Copyright @2023 Megane All Right Reserved
       </InfoContainer>
     </FooterContainer>
   )

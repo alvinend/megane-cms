@@ -1,3 +1,4 @@
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
@@ -76,7 +77,7 @@ const Item = styled.div`
   }
 `
 
-const ItemImage = styled.img`
+const ItemImage = styled(GatsbyImage)`
   height: 200px;
   object-fit: cover;
   object-position: bottom;
@@ -120,52 +121,31 @@ export const FeatureHighlight = React.forwardRef((
   props,
   ref
 ) => {
+  const {
+    items,
+    heading
+  } = props
+
   return (
     <FeatureHighlightContainer ref={ref}>
       <InnerContainer>
-        <h2>Tren Sekarang</h2>
+        <h2>{heading}</h2>
         <ItemContainer>
-          <Item>
-            <ItemImage src="/img/kacamata1.jpg" alt="Gold Glasses" />
-            <ItemDesc>
-              <div className='desc'>
-                <h4>ACETATE</h4>
-                <p>Rp.500K</p>
-              </div>
-              <div className='shop-icons'>
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href="https://shopee.co.id/shop/487039321/" target="_blank" />
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href="https://www.tokopedia.com/meganeofficial" target="_blank" />
-              </div>
-            </ItemDesc>
-          </Item>
-
-          <Item>
-            <ItemImage src="/img/kacamata2.jpg" alt="Gold Glasses" />
-            <ItemDesc>
-              <div className='desc'>
-                <h4>22058</h4>
-                <p>Rp.350K</p>
-              </div>
-              <div className='shop-icons'>
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href="https://shopee.co.id/shop/487039321/" target="_blank" />
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href="https://www.tokopedia.com/meganeofficial" target="_blank" />
-              </div>
-            </ItemDesc>
-          </Item>
-
-          <Item>
-            <ItemImage src="/img/kacamata3.jpg" alt="Gold Glasses" />
-            <ItemDesc>
-              <div className='desc'>
-                <h4>51006</h4>
-                <p>Rp.500K</p>
-              </div>
-              <div className='shop-icons'>
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href="https://shopee.co.id/shop/487039321/" target="_blank" />
-                <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href="https://www.tokopedia.com/meganeofficial" target="_blank" />
-              </div>
-            </ItemDesc>
-          </Item>
+          {items.map((item, index) => (
+            <Item key={index}>
+              <ItemImage image={getImage(item.image) || item.image} alt="Gold Glasses" objectFit='cover' />
+              <ItemDesc>
+                <div className='desc'>
+                  <h4>{item.productName}</h4>
+                  <p>{item.price}</p>
+                </div>
+                <div className='shop-icons'>
+                  <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href={item.linkShopee} target="_blank" />
+                  <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href={item.linkTokopedia} target="_blank" />
+                </div>
+              </ItemDesc>
+            </Item>
+          ))}
         </ItemContainer>
       </InnerContainer>
     </FeatureHighlightContainer>

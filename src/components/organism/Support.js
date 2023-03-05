@@ -174,27 +174,38 @@ export const Support = React.forwardRef((
   props,
   ref
 ) => {
+  const {
+    heading,
+    subheading,
+    goToStoreLabel,
+    linkShopee,
+    linkTokopedia,
+    contactUsLabel,
+    whatsAppNumber,
+    email
+  } = props
+
   return (
     <OuterContainer>
       <SupportContainer ref={ref}>
-        <h2 className="section-title">Layanan Pelanggan</h2>
-        <div className="section-desc">Pelayanan Service Center yang Responsif saat Jam Kerja (08.00 - 17.00)</div>
+        <h2 className="section-title">{heading}</h2>
+        <div className="section-desc">{subheading}</div>
         <SupportVisualContainer>
           <SupportVisual />
           <SupportVisual />
         </SupportVisualContainer>
         <ContactInfoContainer>
           <StoreInfo>
-            <h4>Dapatkan Kami di</h4>
+            <h4>{goToStoreLabel}</h4>
             <div className="item-container">
-              <a href="https://www.tokopedia.com/meganeofficial" className="logo-container" target="_blank">
+              <a href={linkTokopedia} className="logo-container" target="_blank">
                 <div className="image-container">
                   <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/tokopedia.png" alt="Logo Tokopedia" />
                 </div>
                 <span>Tokopedia</span>
               </a>
 
-              <a href="https://shopee.co.id/shop/487039321/" className="logo-container" target="_blank">
+              <a href={linkShopee} className="logo-container" target="_blank">
                 <div className="image-container">
                   <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/shopee.png" alt="Logo Shopee" />
                 </div>
@@ -204,20 +215,20 @@ export const Support = React.forwardRef((
           </StoreInfo>
 
           <ContactInfo>
-            <h4>Hubungi Kami</h4>
+            <h4>{contactUsLabel}</h4>
             <div className="item-container">
               <a className="logo-container" href="https://wa.me/628113509306" target="_blank">
                 <div className="image-container">
                   <RiWhatsappFill />
                 </div>
-                <span>082-501-3465</span>
+                <span>{whatsAppNumber}</span>
               </a>
 
               <div className="logo-container">
                 <div className="image-container">
                   <GrMail />
                 </div>
-                <span>support@megane.co.id</span>
+                <span>{email}</span>
               </div>
             </div>
           </ContactInfo>
