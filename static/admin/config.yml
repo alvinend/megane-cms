@@ -59,7 +59,7 @@ collections:
                     widget: list,
                     fields:
                       [
-                        { label: Gambar, name: image, widget: string },
+                        { label: Gambar, name: image, widget: image },
                         { label: Nama Produk, name: productName, widget: string },
                         { label: Harga, name: price, widget: string },
                         { label: Link Shopee, name: linkShopee, widget: string },
@@ -82,7 +82,7 @@ collections:
                 widget: list,
                 fields:
                   [
-                    { label: Gambar, name: image, widget: string },
+                    { label: Gambar, name: image, widget: image },
                     { label: Judul, name: title, widget: string },
                     { label: Deskripsi, name: description, widget: string },
                   ],
@@ -103,7 +103,7 @@ collections:
                 widget: list,
                 fields:
                   [
-                    { label: Gambar Penulis, name: authorImage, widget: string },
+                    { label: Gambar Penulis, name: authorImage, widget: image },
                     { label: Nama Penulis, name: authorName, widget: string },
                     { label: Deskripsi Testimoni, name: description, widget: string },
                   ],

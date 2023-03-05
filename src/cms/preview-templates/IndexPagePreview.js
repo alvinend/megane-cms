@@ -19,7 +19,10 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           linkWhatsapp={data.linkWhatsapp}
           whatsAppNumber={data.whatsAppNumber}
           email={data.email}
-          jumbotronMetadata={data.jumbotron}
+          jumbotronMetadata={{
+            ...data.jumbotron,
+            image: getAsset(data.jumbotron.image)
+          }}
           featuresMetadata={data.features}
           strongPointsMetadata={data.strongPoints}
           testimoniesMetadata={data.testimonies}
