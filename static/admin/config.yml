@@ -26,13 +26,13 @@ collections:
               widget: "hidden",
               default: "index-page",
             }
-          - { label: 'linkShopee', name: 'Link Shopee', widget: 'string' }
-          - { label: 'linkTokopedia', name: 'Link Tokopedia', widget: 'string' }
-          - { label: 'linkInstagram', name: 'Link Instagram', widget: 'string' }
-          - { label: 'linkFacebook', name: 'Link Facebook', widget: 'string' }
-          - { label: 'linkWhatsapp', name: 'Link Whatsapp', widget: 'string' }
-          - { label: 'whatsAppNumber', name: 'Nomor Whatsapp', widget: 'string' }
-          - { label: 'email', name: 'Email', widget: 'string' }
+          - { label: 'Link Shopee', name: 'linkShopee', widget: 'string' }
+          - { label: 'Link Tokopedia', name: 'linkTokopedia', widget: 'string' }
+          - { label: 'Link Instagram', name: 'linkInstagram', widget: 'string' }
+          - { label: 'Link Facebook', name: 'linkFacebook', widget: 'string' }
+          - { label: 'Link Whatsapp', name: 'linkWhatsapp', widget: 'string' }
+          - { label: 'Nomor Whatsapp', name: 'whatsAppNumber', widget: 'string' }
+          - { label: 'Email', name: 'email', widget: 'string' }
 
           - {
             label: Jumbotron,

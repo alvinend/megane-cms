@@ -8,13 +8,18 @@ const IndexPagePreview = ({ entry, getAsset }) => {
   if (data) {
     return (
       <IndexPageTemplate
-        image={getAsset(data.image)}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
+        linkShopee={data.linkShopee}
+        linkTokopedia={data.linkTokopedia}
+        linkInstagram={data.linkInstagram}
+        linkFacebook={data.linkFacebook}
+        linkWhatsapp={data.linkWhatsapp}
+        whatsAppNumber={data.whatsAppNumber}
+        email={data.email}
+        jumbotronMetadata={data.jumbotron}
+        featuresMetadata={data.features}
+        strongPointsMetadata={data.strongPoints}
+        testimoniesMetadata={data.testimonies}
+        supportMetadata={data.support}
       />
     )
   } else {
