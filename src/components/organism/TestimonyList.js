@@ -125,7 +125,7 @@ const GlassBoxImgMobile = styled(Image)`
   }
 `
 
-const GlassBoxContent = styled.div` 
+const GlassBoxContent = styled.div`
   margin-left: 20px;
   font-size: ${fontsize.normal};
   line-height: 2.1;
@@ -147,15 +147,8 @@ const GlassBoxAuthor = styled.div`
   font-weight: 600;
 `
 
-export const TestimonyList = React.forwardRef((
-  props,
-  ref
-) => {
-  const {
-    heading,
-    subheading,
-    items
-  } = props
+export const TestimonyList = React.forwardRef((props, ref) => {
+  const { heading, subheading, items } = props
 
   return (
     <TestimonyListContainer ref={ref}>
@@ -169,11 +162,15 @@ export const TestimonyList = React.forwardRef((
         <TestimonyContainer>
           {items.map((item, i) => (
             <GlassBox key={i}>
-              <GlassBoxImg image={getImage(item.authorImage) || item.authorImage} />
+              <GlassBoxImg
+                image={getImage(item.authorImage) || item.authorImage}
+              />
               <GlassBoxContent>
                 <GlassBoxDesc>{item.description}</GlassBoxDesc>
                 <GlassBoxAuthor>
-                  <GlassBoxImgMobile image={getImage(item.authorImage) || item.authorImage} />
+                  <GlassBoxImgMobile
+                    image={getImage(item.authorImage) || item.authorImage}
+                  />
                   {item.authorName}
                 </GlassBoxAuthor>
               </GlassBoxContent>

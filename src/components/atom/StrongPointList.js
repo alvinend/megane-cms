@@ -33,12 +33,11 @@ const PointDescContainer = styled.div`
   }
 `
 
-
 const StrongPointListContainer = styled.div`
   position: relative;
   width: 100%;
   max-width: 1000px;
-  box-shadow: 0 0 10px rgba(0,0,0,.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 80px 20px;
   display: flex;
   align-items: center;
@@ -65,7 +64,6 @@ const StrongPointListContainer = styled.div`
     }
   }
 
-
   & b {
     font-weight: 900;
   }
@@ -82,7 +80,9 @@ const PointVisualContainer = styled(Image)`
     margin: 80px 0 50px 0;
   }
 
-  & > img { width: 100%; }
+  & > img {
+    width: 100%;
+  }
 `
 
 const Number = styled.div`
@@ -94,13 +94,8 @@ const Number = styled.div`
   font-weight: 900;
 `
 
-export const StrongPointList = ({
-  imgLink,
-  title,
-  desc,
-  number="01"
-}) => {
-  console.log("XXXX")
+export const StrongPointList = ({ imgLink, title, desc, number = '01' }) => {
+  console.log('XXXX')
   console.log(imgLink)
 
   return (
@@ -108,9 +103,7 @@ export const StrongPointList = ({
       <Number>{number}</Number>
       <PointDescContainer>
         <h3>{title}</h3>
-        <div>
-          {desc}
-        </div>
+        <div>{desc}</div>
       </PointDescContainer>
       <PointVisualContainer image={getImage(imgLink) || imgLink} />
     </StrongPointListContainer>

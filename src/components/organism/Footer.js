@@ -85,7 +85,9 @@ const LogoContainer = styled.div`
     width: 70px;
     margin-right: 30px;
 
-    & > img { width: 100%; }
+    & > img {
+      width: 100%;
+    }
   }
 
   & > span {
@@ -94,19 +96,18 @@ const LogoContainer = styled.div`
   }
 `
 
-
 export const Footer = ({
   linkInstagram,
   linkFacebook,
   linkWhatsapp,
   whatsAppNumber,
-  email
+  email,
 }) => {
   return (
     <FooterContainer>
       <LogoContainer>
         <div className="image-container">
-          <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/topbar/logo_megane_white.png"/>
+          <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/topbar/logo_megane_white.png" />
         </div>
         <span>MEGANE</span>
       </LogoContainer>
@@ -143,4 +144,4 @@ export const Footer = ({
 // Megane Jumbotron Katakana
 // Content Text
 // Image Original
-// 
+//

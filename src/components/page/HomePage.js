@@ -19,7 +19,7 @@ const FloatingContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 200px;
-  bottom : 20px;
+  bottom: 20px;
   right: 20px;
   z-index: 999;
 `
@@ -34,7 +34,7 @@ const ShopIcon = styled.a`
   background-position: center;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.3);
 `
 
 export const HomePage = ({
@@ -67,13 +67,13 @@ export const HomePage = ({
         linkShopee={linkShopee}
         linkTokopedia={linkTokopedia}
       />
-      
+
       <FeatureHighlight
         ref={featureRef}
         heading={featuresMetadata.heading}
         items={featuresMetadata.items}
       />
-      
+
       <StrongPoint
         ref={strongPointRef}
         heading={strongPointsMetadata.heading}
@@ -87,7 +87,7 @@ export const HomePage = ({
         subheading={testimoniesMetadata.subheading}
         items={testimoniesMetadata.items}
       />
-      
+
       <Support
         ref={supportRef}
         heading={supportMetadata.heading}
@@ -101,7 +101,7 @@ export const HomePage = ({
         image1={getImage(supportMetadata.image1) || supportMetadata.image1}
         image2={getImage(supportMetadata.image2) || supportMetadata.image2}
       />
-      
+
       <Footer
         linkFacebook={linkFacebook}
         linkWhatsapp={linkWhatsapp}

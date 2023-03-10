@@ -5,5 +5,5 @@ export const fontsize = {
   h3: 'calc(26/16 * 1rem)',
   normal: 'calc(18/16 * 1rem)',
   icon: 'calc(18/16 * 1rem)',
-  smallIcon: 'calc(14/16 * 1rem)'
+  smallIcon: 'calc(14/16 * 1rem)',
 }

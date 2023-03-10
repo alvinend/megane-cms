@@ -5,17 +5,17 @@ import { StyleSheetManager } from 'styled-components'
 
 const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(['data']).toJS()
-  const iframe = document.querySelector("#preview-pane")
+  const iframe = document.querySelector('#preview-pane')
   const iframeHeadElem = iframe.contentDocument.head
 
   if (data) {
-    console.log("BBBBBB")
+    console.log('BBBBBB')
     console.log({
       ...data.features,
-      items: data.features.items.map(item => ({
+      items: data.features.items.map((item) => ({
         ...item,
-        image: getAsset(item.image)
-      }))
+        image: getAsset(item.image),
+      })),
     })
 
     return (
@@ -30,35 +30,33 @@ const IndexPagePreview = ({ entry, getAsset }) => {
           email={data.email}
           jumbotronMetadata={{
             ...data.jumbotron,
-            image: getAsset(data.jumbotron.image)
+            image: getAsset(data.jumbotron.image),
           }}
           featuresMetadata={{
             ...data.features,
-            items: data.features.items.map(item => ({
+            items: data.features.items.map((item) => ({
               ...item,
-              image: getAsset(item.image)
-            }))
+              image: getAsset(item.image),
+            })),
           }}
-
           strongPointsMetadata={{
             ...data.strongPoints,
-            items: data.strongPoints.items.map(item => ({
+            items: data.strongPoints.items.map((item) => ({
               ...item,
-              image: getAsset(item.image)
-            }))
+              image: getAsset(item.image),
+            })),
           }}
-          
           testimoniesMetadata={{
             ...data.testimonies,
-            items: data.testimonies.items.map(item => ({
+            items: data.testimonies.items.map((item) => ({
               ...item,
-              authorImage: getAsset(item.authorImage)
-            }))
+              authorImage: getAsset(item.authorImage),
+            })),
           }}
           supportMetadata={{
             ...data.support,
             image1: data.support.image1,
-            image2: data.support.image2
+            image2: data.support.image2,
           }}
         />
       </StyleSheetManager>

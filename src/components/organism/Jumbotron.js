@@ -43,7 +43,7 @@ const RightContainer = styled.div`
   & > h1 {
     font-size: ${fontsize.h1};
     font-weight: bold;
-    
+
     @media screen and (max-width: ${screen.mobile}) {
       font-size: ${fontsize.h2};
     }
@@ -61,7 +61,6 @@ const RightContainer = styled.div`
       object-position: center;
       margin: 30px 0;
     }
-
   }
 
   & > p {
@@ -105,7 +104,7 @@ const LeftContainer = styled.div`
     width: 70%;
     max-width: 600px;
     border-radius: 10%;
-    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 
     @media screen and (max-width: ${screen.tablet}) {
       width: 50%;
@@ -128,41 +127,25 @@ const ShopIcon = styled.a`
   background-position: center;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.3);
 `
 
-
-export const Jumbotron = React.forwardRef((
-  props,
-  ref
-) => {
-  const {
-    title,
-    image,
-    description,
-    shopNowLabel,
-    linkShopee,
-    linkTokopedia
-  } = props
+export const Jumbotron = React.forwardRef((props, ref) => {
+  const { title, image, description, shopNowLabel, linkShopee, linkTokopedia } =
+    props
 
   console.log(image)
 
   return (
     <JumbotronContainer ref={ref}>
       <RightContainer>
-        <h1>
-          {title}
-        </h1>
+        <h1>{title}</h1>
 
-        <Image
-          image={image}
-          alt="Gold Glasses"
-          className='main-img-mobile'
-        />
+        <Image image={image} alt="Gold Glasses" className="main-img-mobile" />
 
         <p>{description}</p>
 
-        <div className='shop-icons'>
+        <div className="shop-icons">
           <b>{shopNowLabel}</b>
           <div>
             <ShopIcon
@@ -180,11 +163,7 @@ export const Jumbotron = React.forwardRef((
       </RightContainer>
 
       <LeftContainer>
-        <Image
-          image={image}
-          alt="Gold Glasses"
-          className='main-img'
-        />
+        <Image image={image} alt="Gold Glasses" className="main-img" />
       </LeftContainer>
     </JumbotronContainer>
   )

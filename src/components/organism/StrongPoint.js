@@ -42,16 +42,8 @@ const OverviewDescContainer = styled.div`
   }
 `
 
-
-export const StrongPoint = React.forwardRef((
-  props,
-  ref
-) => {
-  const {
-    heading,
-    subheading,
-    items
-  } = props
+export const StrongPoint = React.forwardRef((props, ref) => {
+  const { heading, subheading, items } = props
 
   return (
     <StrongPointContainer ref={ref}>
@@ -59,9 +51,7 @@ export const StrongPoint = React.forwardRef((
         <OverviewContainer>
           <OverviewDescContainer>
             <h3 className="section-title">{heading}</h3>
-            <div>
-              {subheading}
-            </div>
+            <div>{subheading}</div>
           </OverviewDescContainer>
         </OverviewContainer>
         {items.map((item, i) => (

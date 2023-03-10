@@ -57,14 +57,14 @@ const SupportVisual = styled(Image)`
   width: 40%;
   height: 100%;
 
-  @media screen and (max-width: ${screen .mobile}) {
+  @media screen and (max-width: ${screen.mobile}) {
     width: 100%;
   }
 
   &:first-child {
     margin-top: 40px;
 
-    @media screen and (max-width: ${screen .mobile}) {
+    @media screen and (max-width: ${screen.mobile}) {
       display: none;
     }
   }
@@ -82,7 +82,7 @@ const StoreInfo = styled.div`
   padding-right: 60px;
   border-right: 2px solid ${color.black};
 
-  @media screen and (max-width: ${screen .mobile}) {
+  @media screen and (max-width: ${screen.mobile}) {
     padding: 0;
     border-right: 0;
     padding-bottom: 30px;
@@ -99,7 +99,6 @@ const StoreInfo = styled.div`
     font-size: ${fontsize.normal};
     text-align: center;
     justify-content: center;
-
   }
 
   & .logo-container {
@@ -119,13 +118,15 @@ const StoreInfo = styled.div`
     justify-content: center;
     width: 60px;
     height: 60px;
-    background-color: #FFF;
+    background-color: #fff;
     margin-bottom: 8px;
 
-    & > img { width: 70%; }
+    & > img {
+      width: 70%;
+    }
   }
 
-  & a{
+  & a {
     text-decoration: none;
     color: inherit;
   }
@@ -134,7 +135,7 @@ const StoreInfo = styled.div`
 const ContactInfo = styled.div`
   padding-left: 60px;
 
-  @media screen and (max-width: ${screen .mobile}) {
+  @media screen and (max-width: ${screen.mobile}) {
     padding: 0;
   }
 
@@ -164,13 +165,10 @@ const ContactInfo = styled.div`
     font-size: ${fontsize.h3};
     line-height: 0px;
     margin-right: 12px;
-  } 
+  }
 `
 
-export const Support = React.forwardRef((
-  props,
-  ref
-) => {
+export const Support = React.forwardRef((props, ref) => {
   const {
     heading,
     subheading,
@@ -181,7 +179,7 @@ export const Support = React.forwardRef((
     whatsAppNumber,
     email,
     image1,
-    image2
+    image2,
   } = props
 
   return (
@@ -197,16 +195,26 @@ export const Support = React.forwardRef((
           <StoreInfo>
             <h4>{goToStoreLabel}</h4>
             <div className="item-container">
-              <a href={linkTokopedia} className="logo-container" target="_blank">
+              <a
+                href={linkTokopedia}
+                className="logo-container"
+                target="_blank"
+              >
                 <div className="image-container">
-                  <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/tokopedia.png" alt="Logo Tokopedia" />
+                  <img
+                    src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/tokopedia.png"
+                    alt="Logo Tokopedia"
+                  />
                 </div>
                 <span>Tokopedia</span>
               </a>
 
               <a href={linkShopee} className="logo-container" target="_blank">
                 <div className="image-container">
-                  <img src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/shopee.png" alt="Logo Shopee" />
+                  <img
+                    src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/shopee.png"
+                    alt="Logo Shopee"
+                  />
                 </div>
                 <span>Shopee</span>
               </a>
@@ -216,7 +224,11 @@ export const Support = React.forwardRef((
           <ContactInfo>
             <h4>{contactUsLabel}</h4>
             <div className="item-container">
-              <a className="logo-container" href="https://wa.me/628113509306" target="_blank">
+              <a
+                className="logo-container"
+                href="https://wa.me/628113509306"
+                target="_blank"
+              >
                 <div className="image-container">
                   <RiWhatsappFill />
                 </div>
@@ -236,4 +248,3 @@ export const Support = React.forwardRef((
     </OuterContainer>
   )
 })
-

@@ -1,10 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
+import { getImage } from 'gatsby-plugin-image'
 
-import Layout from "../components/Layout";
-import { HomePage } from "../components/page/HomePage";
+import Layout from '../components/Layout'
+import { HomePage } from '../components/page/HomePage'
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
@@ -36,14 +36,14 @@ export const IndexPageTemplate = ({
       testimoniesMetadata={testimoniesMetadata}
       supportMetadata={supportMetadata}
     />
-  );
-};
+  )
+}
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter } = data.markdownRemark
 
   console.log(frontmatter.jumbotron)
-  
+
   return (
     <Layout>
       <IndexPageTemplate
@@ -61,10 +61,10 @@ const IndexPage = ({ data }) => {
         supportMetadata={frontmatter.support}
       />
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -151,4 +151,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

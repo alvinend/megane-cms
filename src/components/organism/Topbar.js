@@ -22,7 +22,7 @@ const TopbarContainer = styled.header`
   @media screen and (max-width: ${screen.mobile}) {
     & {
       background-color: ${color.white};
-      box-shadow: 0px 4px 20px 1px rgba(0,0,0,0.2);
+      box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.2);
 
       & .white-logo {
         display: none;
@@ -49,7 +49,7 @@ const TopbarContainer = styled.header`
 
   &.sticky {
     background-color: ${color.white};
-    box-shadow: 0px 4px 20px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 4px 20px 1px rgba(0, 0, 0, 0.2);
 
     & .white-logo {
       display: none;
@@ -72,11 +72,11 @@ const MenuContainer = styled.ul`
   cursor: pointer;
 
   & > li {
-    margin: 0 15px
+    margin: 0 15px;
   }
 
   @media screen and (max-width: ${screen.mobile}) {
-    display: ${({ isShowing }) => isShowing ? 'flex' : 'none'};
+    display: ${({ isShowing }) => (isShowing ? 'flex' : 'none')};
     position: fixed;
     top: 83px;
     left: 0;
@@ -86,7 +86,7 @@ const MenuContainer = styled.ul`
     background-color: rgba(0, 0, 0, 0.9);
     color: ${color.white};
     height: 100vh;
-    animation: scale-in-ver-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: scale-in-ver-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 
     & > li {
       padding: 60px 0;
@@ -111,27 +111,24 @@ export const Topbar = ({
   featureRef,
   strongPointRef,
   productRef,
-  supportRef
+  supportRef,
 }) => {
   const [isShowing, setIsShowing] = React.useState(false)
 
-  React.useEffect(
-    () => {
-      window.addEventListener('scroll', () => {
-        const header = document.querySelector('header')
-        header?.classList.toggle('sticky', window.scrollY > window.screen.height - 100)
-      })
-    },
-    []
-  )
+  React.useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header')
+      header?.classList.toggle(
+        'sticky',
+        window.scrollY > window.screen.height - 100
+      )
+    })
+  }, [])
 
-  const handleClick = React.useCallback(
-    ref => {
-      setIsShowing(false)
-      ref?.current?.scrollIntoView()
-    },
-    []
-  )
+  const handleClick = React.useCallback((ref) => {
+    setIsShowing(false)
+    ref?.current?.scrollIntoView()
+  }, [])
 
   return (
     <TopbarContainer>

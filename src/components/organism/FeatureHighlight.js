@@ -15,11 +15,10 @@ const FeatureHighlightContainer = styled.div`
   background-color: ${color.lightGray};
 `
 
-
 const InnerContainer = styled.div`
   display: flex;
   width: 100%;
-  margin: 80px ;
+  margin: 80px;
   padding: 0px 100px 100px 100px;
   justify-content: space-between;
   align-items: center;
@@ -31,7 +30,6 @@ const InnerContainer = styled.div`
   @media screen and (max-width: ${screen.mobile}) {
     padding: 0 60px 100px 60px;
   }
-
 
   & > h2 {
     font-size: ${fontsize.h2};
@@ -52,13 +50,12 @@ const ItemContainer = styled.div`
   }
 `
 
-
 const Item = styled.div`
   width: 300px;
   height: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #FFF;
+  background-color: #fff;
   border-radius: 15%;
 
   @media screen and (max-width: ${screen.tablet}) {
@@ -109,7 +106,7 @@ const ShopIcon = styled.a`
   background-position: center;
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0px 4px 10px 1px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 10px 1px rgba(0, 0, 0, 0.3);
 
   @media screen and (max-width: ${screen.tablet}) {
     width: 55px;
@@ -118,14 +115,8 @@ const ShopIcon = styled.a`
   }
 `
 
-export const FeatureHighlight = React.forwardRef((
-  props,
-  ref
-) => {
-  const {
-    items,
-    heading
-  } = props
+export const FeatureHighlight = React.forwardRef((props, ref) => {
+  const { items, heading } = props
 
   return (
     <FeatureHighlightContainer ref={ref}>
@@ -134,15 +125,27 @@ export const FeatureHighlight = React.forwardRef((
         <ItemContainer>
           {items.map((item, index) => (
             <Item key={index}>
-              <ItemImage image={getImage(item.image) || item.image} alt="Gold Glasses" objectFit='cover' />
+              <ItemImage
+                image={getImage(item.image) || item.image}
+                alt="Gold Glasses"
+                objectFit="cover"
+              />
               <ItemDesc>
-                <div className='desc'>
+                <div className="desc">
                   <h4>{item.productName}</h4>
                   <p>{item.price}</p>
                 </div>
-                <div className='shop-icons'>
-                  <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg" href={item.linkShopee} target="_blank" />
-                  <ShopIcon src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png" href={item.linkTokopedia} target="_blank" />
+                <div className="shop-icons">
+                  <ShopIcon
+                    src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/shoppee_logo.jpg"
+                    href={item.linkShopee}
+                    target="_blank"
+                  />
+                  <ShopIcon
+                    src="https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/floating-icon/tokopedia_logo.png"
+                    href={item.linkTokopedia}
+                    target="_blank"
+                  />
                 </div>
               </ItemDesc>
             </Item>
