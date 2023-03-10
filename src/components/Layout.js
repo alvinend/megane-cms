@@ -1,15 +1,15 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import "./all.sass";
 import "./global.css";
-import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
 
 const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata();
+  const title = "Megane Optik - Kacamata & Lensa"
+
+  const description = "Temukan kacamata dan lensa berkualitas tinggi dengan harga terjangkau di Megane Optik. Dapatkan pakaian mata yang luar biasa tanpa harus mengeluarkan banyak uang."
+  
   return (
     <div>
       <Helmet>
@@ -43,11 +43,6 @@ const TemplateWrapper = ({ children }) => {
           sizes="16x16"
         />
 
-        <link
-          rel="mask-icon"
-          href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
-          color="#ff4400"
-        />
         <meta name="theme-color" content="#fff" />
 
         <meta property="og:type" content="business.business" />
