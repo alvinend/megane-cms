@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { color } from '../../utils'
 import { fontsize } from '../../utils/fontsize'
 import { screen } from '../../utils/screen'
+import { Image } from '../atom/Image'
 
 const FeatureHighlightContainer = styled.div`
   width: 100vw;
@@ -77,7 +78,7 @@ const Item = styled.div`
   }
 `
 
-const ItemImage = styled(GatsbyImage)`
+const ItemImage = styled(Image)`
   height: 200px;
   object-fit: cover;
   object-position: bottom;

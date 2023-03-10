@@ -75,4 +75,6 @@ support:
   subheading: Pelayanan Service Center yang Responsif saat Jam Kerja (08.00 - 17.00)
   goToStoreLabel: Dapatkan Kami di
   contactUsLabel: Hubungi Kami
+  image1: /img/woman_1.jpg
+  image2: /img/woman_2.jpg
 ---

@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { color } from '../../utils'
 import { fontsize } from '../../utils/fontsize'
 import { screen } from '../../utils/screen'
+import { Image } from './Image'
 
 const PointDescContainer = styled.div`
   width: 50%;
@@ -40,6 +41,7 @@ const StrongPointListContainer = styled.div`
   box-shadow: 0 0 10px rgba(0,0,0,.1);
   padding: 80px 20px;
   display: flex;
+  align-items: center;
   margin-top: 50px;
   flex-direction: row-reverse;
 
@@ -69,15 +71,11 @@ const StrongPointListContainer = styled.div`
   }
 `
 
-const PointVisualContainer = styled.div`
+const PointVisualContainer = styled(Image)`
   width: 50%;
   min-height: 300px;
   height: 100%;
   margin: 0 30px;
-  background-image: url(${({ src }) => src});
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
 
   @media screen and (max-width: ${screen.tablet}) {
     width: 100%;
@@ -102,7 +100,8 @@ export const StrongPointList = ({
   desc,
   number="01"
 }) => {
-  console.log(getImage(imgLink))
+  console.log("XXXX")
+  console.log(imgLink)
 
   return (
     <StrongPointListContainer>
@@ -113,7 +112,7 @@ export const StrongPointList = ({
           {desc}
         </div>
       </PointDescContainer>
-      <PointVisualContainer src={getImage(imgLink)?.images?.fallback?.src} />
+      <PointVisualContainer image={getImage(imgLink) || imgLink} />
     </StrongPointListContainer>
   )
 }

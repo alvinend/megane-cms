@@ -5,6 +5,7 @@ import { RiWhatsappFill } from 'react-icons/ri'
 import { GrMail } from 'react-icons/gr'
 import { screen } from '../../utils/screen'
 import { fontsize } from '../../utils/fontsize'
+import { Image } from '../atom/Image'
 
 const OuterContainer = styled.div`
   width: 100vw;
@@ -51,20 +52,16 @@ const SupportVisualContainer = styled.div`
   }
 `
 
-const SupportVisual = styled.div`
+const SupportVisual = styled(Image)`
   background-color: ${color.red};
   width: 40%;
   height: 100%;
-  background-image: url('https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/woman_2.jpg');
-  background-size: cover;
-  background-position: center;
 
   @media screen and (max-width: ${screen .mobile}) {
     width: 100%;
   }
 
   &:first-child {
-    background-image: url('https://megane-lp-data-bucket.s3.ap-northeast-1.amazonaws.com/support/woman_1.jpg');
     margin-top: 40px;
 
     @media screen and (max-width: ${screen .mobile}) {
@@ -182,7 +179,9 @@ export const Support = React.forwardRef((
     linkTokopedia,
     contactUsLabel,
     whatsAppNumber,
-    email
+    email,
+    image1,
+    image2
   } = props
 
   return (
@@ -191,8 +190,8 @@ export const Support = React.forwardRef((
         <h2 className="section-title">{heading}</h2>
         <div className="section-desc">{subheading}</div>
         <SupportVisualContainer>
-          <SupportVisual />
-          <SupportVisual />
+          <SupportVisual image={image1} />
+          <SupportVisual image={image2} />
         </SupportVisualContainer>
         <ContactInfoContainer>
           <StoreInfo>

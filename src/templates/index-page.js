@@ -140,6 +140,16 @@ export const pageQuery = graphql`
           subheading
           goToStoreLabel
           contactUsLabel
+          image1 {
+            childImageSharp {
+              gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            }
+          }
+          image2 {
+            childImageSharp {
+              gatsbyImageData(quality: 100, layout: FULL_WIDTH)
+            }
+          }
         }
       }
     }

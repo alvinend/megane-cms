@@ -1,9 +1,9 @@
-import { GatsbyImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
 import { fontsize } from '../../utils/fontsize'
 import { screen } from '../../utils/screen'
+import { Image } from '../atom/Image'
 
 const JumbotronContainer = styled.div`
   display: flex;
@@ -154,7 +154,7 @@ export const Jumbotron = React.forwardRef((
           {title}
         </h1>
 
-        <GatsbyImage
+        <Image
           image={image}
           alt="Gold Glasses"
           className='main-img-mobile'
@@ -180,7 +180,7 @@ export const Jumbotron = React.forwardRef((
       </RightContainer>
 
       <LeftContainer>
-        <GatsbyImage
+        <Image
           image={image}
           alt="Gold Glasses"
           className='main-img'

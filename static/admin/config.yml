@@ -120,5 +120,7 @@ collections:
                 { label: Deskripsi Judul, name: subheading, widget: text },
                 { label: Label ke Toko, name: goToStoreLabel, widget: text },
                 { label: Label Hubungi Kami, name: contactUsLabel, widget: text },
+                { label: Gambar 1, name: image1, widget: image },
+                { label: Gambar 2, name: image2, widget: image },
               ],
             }

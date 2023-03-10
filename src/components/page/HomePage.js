@@ -98,6 +98,8 @@ export const HomePage = ({
         linkWhatsapp={linkWhatsapp}
         whatsAppNumber={whatsAppNumber}
         email={email}
+        image1={getImage(supportMetadata.image1) || supportMetadata.image1}
+        image2={getImage(supportMetadata.image2) || supportMetadata.image2}
       />
       
       <Footer

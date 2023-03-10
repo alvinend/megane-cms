@@ -1,9 +1,10 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { getImage } from 'gatsby-plugin-image'
 import * as React from 'react'
 import styled from 'styled-components'
 import { color } from '../../utils'
 import { fontsize } from '../../utils/fontsize'
 import { screen } from '../../utils/screen'
+import { Image } from '../atom/Image'
 
 const TestimonyListContainer = styled.div`
   width: 100vw;
@@ -98,7 +99,7 @@ const GlassBox = styled.div`
   }
 `
 
-const GlassBoxImg = styled(GatsbyImage)`
+const GlassBoxImg = styled(Image)`
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -110,7 +111,7 @@ const GlassBoxImg = styled(GatsbyImage)`
   }
 `
 
-const GlassBoxImgMobile = styled(GatsbyImage)`
+const GlassBoxImgMobile = styled(Image)`
   display: none;
   width: 50px;
   height: 50px;
